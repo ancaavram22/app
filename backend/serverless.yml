@@ -1,0 +1,27 @@
+org: razvantamsa
+app: dp-notes-app
+service: backend
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+frameworkVersion: '3'
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  api:
+    handler: handler.handler
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true
+

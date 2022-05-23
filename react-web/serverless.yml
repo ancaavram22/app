@@ -1,0 +1,22 @@
+org: razvantamsa
+app: react-web
+service: frontend-react-web
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-finch
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: handler.hello
+
+custom:
+  client:
+    bucketName: razvantamsa-442266
+    distributionFolder: build/
+    errorDocument: index.html
